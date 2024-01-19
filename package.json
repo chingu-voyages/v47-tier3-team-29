@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": "please use yarn",
+    "yarn": ">=1.22.0"
+  },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
