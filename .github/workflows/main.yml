@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["main", "develop"]
+
+jobs:
+  lint-typecheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps (with cache)
+        run: yarn install
+
+      - name: Lint and type-check
+        run: |
+          yarn run lint 
+          yarn run typecheck
+
+      # - name: Test
+      #   run: yarn run test
