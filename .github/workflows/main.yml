@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  pull_request
-  push
+  pull_request:
+  push:
 
 jobs:
   lint-typecheck:
@@ -25,5 +25,5 @@ jobs:
           yarn run lint 
           yarn run typecheck
 
-      # - name: Test
-      #   run: yarn run test
+      - name: Test
+        run: yarn run test
