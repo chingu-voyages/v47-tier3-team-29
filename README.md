@@ -2,7 +2,27 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+yarn
+```
+
+Generate the prisma client:
+
+```bash
+yarn prisma:generate
+```
+
+Create a `.env.local` file in the root of the project and add the following:
+
+```bash
+DATABASE_URL=
+```
+
+contact [fmtabbara](https://github.com/fmtabbara) for the database url
+
+## Running the app
 
 ```bash
 npm run dev
