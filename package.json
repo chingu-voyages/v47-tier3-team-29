@@ -13,6 +13,8 @@
     "db:pull": "dotenv -e .env.local prisma db pull",
     "db:migrate": "dotenv -e .env.local prisma migrate dev",
     "db:studio": "dotenv -e .env.local -- prisma studio",
+    "docker-up": " docker compose --env-file=.env.local up -d --wait",
+    "docker-down": "docker compose --env-file=.env.local down"
   },
   "engines": {
     "node": ">=18.17.0",
