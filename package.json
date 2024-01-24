@@ -9,9 +9,10 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "dotenv -e .env.local vitest",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "dotenv -e .env.local prisma migrate dev",
-    "prisma:studio": "dotenv -e .env.local -- prisma studio"
+    "db:generate": "prisma generate",
+    "db:pull": "dotenv -e .env.local prisma db pull",
+    "db:migrate": "dotenv -e .env.local prisma migrate dev",
+    "db:studio": "dotenv -e .env.local -- prisma studio",
   },
   "engines": {
     "node": ">=18.17.0",
