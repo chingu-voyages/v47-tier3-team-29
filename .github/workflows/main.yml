@@ -3,6 +3,7 @@ name: CI
 on:
   pull_request:
   push:
+    paths: ["main", "develop"]
 
 jobs:
   lint-typecheck:
