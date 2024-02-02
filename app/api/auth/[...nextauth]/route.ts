@@ -1,20 +1,27 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import { PrismaClient } from "@prisma/client";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import NextAuth from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import prisma from '@/app/lib/prisma'
 
-const prisma = new PrismaClient();
+if (!process.env.GOOGLE_CLIENT_ID) {
+  throw new Error('Missing env.GOOGLE_CLIENT_ID')
+}
+
+if (!process.env.GOOGLE_CLIENT_SECRET) {
+  throw new Error('Missing env.GOOGLE_CLIENT_SECRET')
+}
 
 const authOptions = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  adapter: PrismaAdapter(prisma),
-};
+  debug: process.env.NODE_ENV === 'development',
+}
 
-const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions)
 
-export { handler as GET, handler as POST, authOptions };
+export { handler as GET, handler as POST, authOptions }
