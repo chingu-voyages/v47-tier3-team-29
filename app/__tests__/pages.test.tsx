@@ -9,14 +9,9 @@ test('example', async () => {
 test('Home page', () => {
   render(<Page />);
 
-  const success = screen.getByText('success', {
+  const text = screen.getByText('Project Management', {
     exact: false,
   });
 
-  const simplicity = screen.getByText('simplicity', {
-    exact: false,
-  });
-
-  expect(success).toBeTruthy();
-  expect(simplicity).toBeTruthy();
+  expect(text).toBeTruthy();
 });
