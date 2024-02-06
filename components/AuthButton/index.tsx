@@ -22,8 +22,10 @@ export default function AuthButton() {
     }
   };
 
+  const getButtonVariant = session ? 'outline' : 'default';
+
   return (
-    <Button size="sm" onClick={handleClick}>
+    <Button variant={getButtonVariant} size="sm" onClick={handleClick}>
       {getButtonText()}
     </Button>
   );
