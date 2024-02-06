@@ -7,17 +7,17 @@ import LoginButton from '../AuthButton';
 
 async function Navbar() {
   return (
-    <div>
-      <div className="flex justify-between items-center p-6 sticky top-0">
+    <div className="bg-white">
+      <div className=" flex justify-between items-center p-6">
         <Link href="/">
           <Logo />
         </Link>
-        <div className="flex  gap-5 items-center justify-between">
+        <div className="flex gap-5 items-center justify-between">
           <UserWelcome />
           <LoginButton />
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="">
         <StrapLine />
       </div>
     </div>

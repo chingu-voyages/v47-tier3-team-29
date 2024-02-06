@@ -1,13 +1,22 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Page from '@/app/page';
+import Page from '../page';
 
-test('example', () => {
+test('example', async () => {
   expect(true).toBe(true);
 });
 
-test('Page', () => {
+test('Home page', () => {
   render(<Page />);
-  const element = screen.queryByText('Docs');
-  expect(element).toBeTruthy();
+
+  const success = screen.getByText('success', {
+    exact: false,
+  });
+
+  const simplicity = screen.getByText('simplicity', {
+    exact: false,
+  });
+
+  expect(success).toBeTruthy();
+  expect(simplicity).toBeTruthy();
 });

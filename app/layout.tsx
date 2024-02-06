@@ -21,8 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <Navbar />
-          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+          <div className="h-screen grid grid-cols-1 grid-rows-12">
+            <div className="row-span-2">
+              <Navbar />
+            </div>
+            <main className="row-span-10">
+              <div className="overflow-auto h-full">{children}</div>
+            </main>
+          </div>
         </SessionProvider>
       </body>
     </html>
