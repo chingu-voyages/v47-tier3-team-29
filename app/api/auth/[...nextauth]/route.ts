@@ -11,7 +11,7 @@ if (!process.env.GOOGLE_CLIENT_SECRET) {
   throw new Error('Missing env.GOOGLE_CLIENT_SECRET');
 }
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
