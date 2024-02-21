@@ -1,6 +1,7 @@
 import prisma from '@/app/lib/prisma';
 import { auth } from '@/lib/auth';
 
+
 async function GET() {
   const session = await auth();
 
@@ -16,11 +17,11 @@ async function GET() {
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
-  const tasks = await prisma.task.findMany({
+  const projects = await prisma.project.findMany({
     where: { userId: user.id },
+    include: { Task: true },
   });
-
-  return Response.json(tasks);
+  return Response.json({ projects });
 }
 
 async function POST(request: Request) {
@@ -31,12 +32,17 @@ async function POST(request: Request) {
     return Response.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
-  const created = await prisma.task.create({
+  const created = await prisma.project.create({
     data: {
-      title: data.task.title,
-      description: data.task.description,
+      title: data.project.title,
+      description: data.project.description,
       user: { connect: { email: session.user.email } },
-    },
+      Task: {
+        connect: data.project.tasks.map((taskId: string) => ({
+          id: taskId
+        })),
+      }
+    }
   });
 
   return Response.json({ created });
@@ -51,10 +57,10 @@ async function DELETE(request: Request) {
 
   const data = await request.json();
 
-  const taskId = data.id;
+  const projectId = data.id;
 
-  const deleted = await prisma.task.delete({
-    where: { id: taskId },
+  const deleted = await prisma.project.delete({
+    where: { id: projectId },
   });
 
   return Response.json({ deleted });

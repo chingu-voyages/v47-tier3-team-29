@@ -1,38 +1,41 @@
 import React from 'react';
 import {
   Card,
+  CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Task as TaskType } from '@prisma/client';
+import { Project as ProjectType } from '@prisma/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { X } from 'lucide-react';
+import { XCircle } from 'lucide-react';
 
-type TaskProps = Pick<TaskType, 'title' | 'description' | 'status'> & {
-  onSelect?: () => void;
-  onDelete?: () => void;
+type ProjectProps = Pick<ProjectType, 'title' | 'description'> & {
+  status: string;
+  onSelect: () => void;
+  onDelete: () => void;
 };
 
-const Task = ({
+const Project = ({
   title,
   description,
   status,
   onSelect,
   onDelete,
-}: TaskProps) => {
+}: ProjectProps) => {
   const handleOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onSelect?.();
+    onSelect();
   };
 
   const handleOnDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    onDelete?.();
+    onDelete();
   };
   return (
     <Card
-      className="min-w-[250px] bg-slate-50 hover:bg-slate-100 cursor-pointer relative transition-colors duration-300 ease-in-out"
+      className="min-w-[350px] hover:bg-slate-100 cursor-pointer relative transition-colors duration-300 ease-in-out"
       onClick={handleOnClick}
     >
       <Button
@@ -41,21 +44,19 @@ const Task = ({
         className="absolute top-2 right-2 hover:text-red-600 transition-colors duration-500 ease-in-out"
         onClick={handleOnDelete}
       >
-        <X size={16} />
+        <XCircle size={24} />
       </Button>
       <CardHeader className="mr-6">
         <CardTitle className="flex justify-between items-start">
           <div>{title}</div>
         </CardTitle>
-        <CardDescription>
-          <div className="flex justify-between">
-            {description}
-            <Badge className="bg-indigo-600">{status}</Badge>
-          </div>
-        </CardDescription>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
+      <CardFooter className="flex justify-end">
+        <Badge className="bg-indigo-600">{status}</Badge>
+      </CardFooter>
     </Card>
   );
 };
 
-export default Task;
+export default Project;

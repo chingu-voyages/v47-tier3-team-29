@@ -21,8 +21,8 @@ export default function Tasks() {
   const inputTaskDescription = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    getTasks().then((data) => {
-      setTasks(data.tasks);
+    getTasks().then((tasks) => {
+      setTasks(tasks);
     });
   }, []);
 

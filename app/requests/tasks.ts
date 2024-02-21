@@ -19,7 +19,7 @@ async function createTask(
   return created.json();
 }
 
-async function getTasks(): Promise<{ tasks: Task[] }> {
+async function getTasks(): Promise<Task[]> {
   const response = await fetch('/api/tasks');
 
   return response.json();
