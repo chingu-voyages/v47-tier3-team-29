@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export default function WelcomeScreen() {
   return (
     <main>
-      <section className="text-center bg-white px-4 py-8">
+      <section className="text-center px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 h-12 flex justify-center">
             <Logo/>
@@ -32,7 +32,7 @@ export default function WelcomeScreen() {
         </div>
       </section>
 
-      <section className="text-center bg-white px-4 py-8">
+      <section className="text-center px-4 py-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Where <span className="text-purple-600">management</span>
         </h2>
@@ -66,7 +66,7 @@ export default function WelcomeScreen() {
         </div>
       </section>
 
-      <section className="text-center bg-white px-4 py-8">
+      <section className="text-center px-4 py-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           We simplify <span className="text-purple-600">management</span>, you <span className="text-purple-600">grow</span>. We're <span className="text-purple-600">responsive</span> Don’t wait, <span className="text-purple-600">start today.</span></h2>
       </section>
@@ -80,8 +80,17 @@ export default function WelcomeScreen() {
         </div>
       </section>
 
-      <Footer />
+      <section>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 my-8">
+          <p className="self-center">Get Started</p>
+          <Button className="self-center">
+            <Mail />  Log In with Email
+          </Button>
+        </div>
+      </section>
+      <div className="mt-20">&nbsp;</div>
 
+      <Footer />
     </main>
   );
 

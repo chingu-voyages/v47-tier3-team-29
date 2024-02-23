@@ -2,7 +2,7 @@ import WelcomeScreen from '@/components/WelcomeScreen';
 export default function Home() {
   return (
 
-    <main className='mt-4'>
+    <main className='mt-4' style={{backgroundColor:'#F8FAFC'}}>
       <WelcomeScreen />
     </main>
     // <main className="flex flex-col items-center justify-between p-24">
