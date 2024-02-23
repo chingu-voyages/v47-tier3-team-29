@@ -1,18 +1,18 @@
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 export default function WelcomeScreen() {
   return (
     <main>
       <section className="text-center bg-white px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <img src="/logo.png" alt="Breezy Logo" className="h-12 mx-auto" />
+          <div className="mb-8 h-12 flex justify-center">
+            <Logo/>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Welcome to next level <span className="text-purple-600">Project Management</span>
+            Welcome to next level <span className="text-indigo-800">Project Management</span>
           </h2>
           <p className="mb-8">Get your projects organized and streamlined with our tool.</p>
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
