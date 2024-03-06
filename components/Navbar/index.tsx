@@ -31,7 +31,7 @@ async function Navbar() {
         </div>
       </div>
       <div className="">
-        <StrapLine />
+        {/* <StrapLine /> */}
       </div>
     </div>
   );
