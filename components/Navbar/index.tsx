@@ -12,7 +12,6 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import Logo from '../Logo';
-import StrapLine from '../StrapLine';
 import UserWelcome from '../UserWelcome';
 import LoginButton from '../AuthButton';
 import { useSession } from 'next-auth/react';
@@ -29,9 +28,6 @@ async function Navbar() {
           <NavigationMenu />
           <LoginButton />
         </div>
-      </div>
-      <div className="">
-        <StrapLine />
       </div>
     </div>
   );
